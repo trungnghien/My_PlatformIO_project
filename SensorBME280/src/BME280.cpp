@@ -5,9 +5,9 @@ void BME280::init(){
         Serial.println("Could not find a valid BME280 sensor, check wiring!");
         while (true);
     }
-    //stateFunc = &resetFunc;
+    stateFunc = &resetFunc;
 }
-/*void BME280::resetFunc(){
+void BME280::resetFunc(){
     t0 = millis();
     if(true)
         stateFunc = &checkTimetoLogData;
@@ -16,12 +16,12 @@ void BME280::checkTimetoLogData(){
     t1 = millis();
     if(t1-t0> DELAY_TIME)
         stateFunc = &getData;
-}*/
+}
 void BME280::getData(){
     this->Humidity      = this->bme280.readHumidity();
     this->Temperature   = this->bme280.readTemperature();
     this->Pressure      = this->bme280.readPressure();
-    //stateFunc = &logData;
+    stateFunc = &logData;
 }
 void BME280::logData(){
     Serial.print("Temperature = ");
@@ -38,8 +38,8 @@ void BME280::logData(){
 
     Serial.println();
     delay(DELAY_TIME);
-    /*if(true)
-        stateFunc = &resetFunc;*/
+    if(true)
+        stateFunc = &resetFunc;
 }
 float BME280::getHumidity()
 {
