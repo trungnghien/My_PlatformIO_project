@@ -16,7 +16,7 @@ class ButtonTask {
         void reset();
         void checkButton();
         void checkLedStateFunc();
-        void udateHoldTime();
+        void updateHoldTime();
         void turnOn_Led_2_Blink_Task();
         void checkHoldTime();
         void toggle_Led_1_Blink_Task();

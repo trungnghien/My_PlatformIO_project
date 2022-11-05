@@ -1,0 +1,3 @@
+#define PIN_SDA_GPIO 26
+#define PIN_SCL_GPIO 27
+#define I2C_CLOCK_SPEED 100000
